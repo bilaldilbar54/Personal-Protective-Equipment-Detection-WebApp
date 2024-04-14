@@ -59,7 +59,183 @@
                 transform: scaleX(1);
             }
 
+            .home {
+                min-height: 100vh;
+                top: -235px;
+                background: url('img/PPE.jpg') no-repeat center;
+                background-size: contain;
+                z-index: 0;
+                overflow: hidden;
+                position: relative;
+            }
 
+            .home .content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column;
+                padding-top: 14rem;
+                padding-bottom: 15rem;
+                text-align: center;
+            }
+
+            .home .content h1 {
+                font-size: 3rem;
+                color: #fff;
+                padding: 0 1rem ;
+                text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
+                text-transform: uppercase;
+            }
+
+            .home .content p {
+                font-size: 2rem;
+                color: #fff;
+                padding: 1rem 25rem;
+
+            }
+
+            .home .box-container {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                top: 500rem;
+            }
+
+            .home .box-container .box {
+                height: 20rem;
+                width: 22rem;
+                background: #fff;
+                text-align: center;
+                border-radius: 1rem;
+                box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+                margin: 2rem;
+                cursor: pointer;
+            }
+
+            .home .box-container .box i {
+                height: 6rem;
+                width: 6rem;
+                line-height: 6rem;
+                text-align: center;
+                border-radius: 50%;
+                color: #fbbc42;
+                font-size: 3rem;
+                margin: 2rem;
+                transition: 0.2s;
+            }
+
+            .home .box-container .box h3 {
+                font-size: 1.2rem;
+                color: #064a69;
+                transition: 0.2s;
+            }
+
+            .home .box-container .box p {
+                font-size: 0.7rem;
+                padding: 0.7rem 2rem;
+                color: #666;
+            }
+
+            .home::before {
+                content: '';
+                position: absolute;
+                bottom: -25%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-top: 70vh solid #fff;
+                width: 120%;
+                border-radius: 50%;
+                z-index: -1;
+            }
+
+            .home .box-container .box .btn {
+                width: 50%;
+                height: 50px;
+                border: none;
+                outline: none;
+                border-radius: 40px;
+                background: #064a69;
+                box-shadow: 0 0 0 rgba(0, 0, 0, .5);
+                cursor: pointer;
+                color: #fff;
+            }
+
+            .heading {
+                margin-top: -250px;
+                font-size: 3rem;
+                color: #bc2618;
+                text-align: center;
+                padding: 0 1rem;
+                letter-spacing: 0.2rem;
+                font-weight: 500;
+            }
+
+            .title {
+                padding: 0 1rem;
+                font-size: 2rem;
+                text-align: center;
+                font-weight: 400;
+                color: #064a69;
+            }
+
+            .about .row {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .about .row .image img{
+                padding-right: 60px;
+            }
+
+            .about .row .content {
+                padding-left: 5rem;
+            }
+
+            .about .row .content h3 {
+                font-size: 2rem;
+                color: #bc2618;
+            }
+
+            .about .row .content p {
+                width: 85%;
+                font-size: 1.3rem;
+                padding: 1rem 0;
+                margin-left: 100px;
+            }
+
+            .about2 {
+                margin-top: 100px;
+            }
+
+            .about2 .box-container {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                top: 500rem;
+            }
+
+            .about2 .box-container .box {
+                height: 20rem;
+                width: 22rem;
+                background: #fff;
+                text-align: center;
+                margin: 2rem;
+                padding-top: 1rem;
+                cursor: pointer;
+            }
+
+            .about2 .row .box-container .box i {
+                height: 6rem;
+                width: 6rem;
+                line-height: 6rem;
+                text-align: center;
+                border-radius: 50%;
+                color: #fbbc42;
+                font-size: 3rem;
+                margin: 2rem;
+                transition: 0.2s;
+            }
         </style>
     </head>
     <body>
@@ -68,12 +244,98 @@
             <img src="img/protective-gear.png" alt="Gear Icon" width="25" height="25">GearCheck AI
         </a>
         <nav class="nav">
-            <a href="/">Home</a>
-            <a href="#">About</a>
-            <a href="#">Models</a>
+            <a href="/home">Home</a>
+            <a href="/home#about">About</a>
             <a href="/contact_us">Contact Us</a>
+            <a href="/login">Log out</a>
         </nav>
     </header>
+    <section class="home">
+        <div class="content">
+            <h1>!</h1>
+        </div>
+        <div class="box-container">
+            <div class="box">
+                <i class="construction-model">
+                    <ion-icon name="construct"></ion-icon>
+                </i>
+                <h3>Construction Site PPE Detection</h3>
+                <p>Implementation of AI-powered technology specifically tailored for ensuring compliance with
+                    Personal Protective Equipment (PPE) regulations at construction sites.</p>
+                <button type="submit" class="btn" onclick="window.location.href = '/construction-ppe';">Try It Out</button>
+            </div>
+            <div class="box">
+                <i class="medical-model">
+                    <ion-icon name="medkit"></ion-icon>
+                </i>
+                <h3>Medical PPE Detection</h3>
+                <p>Utilization of cutting-edge AI technology to monitor and enforce the proper usage of
+                    Personal Protective Equipment (PPE) within medical environments.</p>
+                <button type="submit" class="btn">Try It Out</button>
+            </div>
+            <div class="box">
+                <i class="custom-model">
+                    <ion-icon name="git-compare"></ion-icon>
+                </i>
+                <h3>Custom PPE Detection</h3>
+                <p>Offers tailored solutions to meet the specific safety needs of diverse work environments.</p>
+                <p>Do you have special requirements when it comes to PPE and safety gear detection?
+                    If yes then get in touch with our team to create a custom solution.</p>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <h1 class="heading" id="about">About</h1>
+        <h3 class="title">What is PPE detection?</h3>
+        <div class="row">
+            <div class="content">
+                <p>Personal Protective Equipment (PPE) detection is a technological solution designed to enhance
+                    workplace safety by automatically identifying instances of non-compliance with safety regulations
+                    regarding the use of Personal Protective Equipment. This technology utilizes cameras and
+                    sophisticated deep-learning algorithms to analyze real-time footage or images captured within
+                    work environments, such as construction sites, mines, manufacturing facilities, healthcare settings,
+                    and more.</p>
+            </div>
+            <div class="image">
+                <img src="img/detect.png" alt="workplace">
+            </div>
+        </div>
+    </section>
+    <section class="about2">
+        <h3 class="title">What are the benefits of PPE detection?</h3>
+        <div class="row">
+            <div class="box-container">
+            <div class="box">
+                <i class="automation">
+                    <img src="img/icon/motion-sensor.png" alt="Gear Icon" width="50" height="50">
+                </i>
+                <h3>Fully automated</h3>
+                <p>It is almost impossible to check whether workers are wearing hard hats and other PPE at all times
+                    simply using human labor. Automated PPE detection through AI cameras and video analytics is a
+                    perfect solution in a multitude of settings.</p>
+            </div>
+            <div class="box">
+                <i class="notifications">
+                    <ion-icon name="notifications-circle-outline"></ion-icon>
+                </i>
+                <h3>Timely notifications</h3>
+                <p>As soon as a hard hat or any other PPE is removed by a worker, a customizable alarm will
+                    immediately sound and the security personnel will receive an instant notification.
+                    This minimizes the time a worker would be in danger.</p>
+            </div>
+            <div class="box">
+                <i class="implement">
+                    <ion-icon name="shield-checkmark-outline"></ion-icon>
+                </i>
+                <h3>Easy to implement</h3>
+                <p>Taking advantage of industry-leading AI algorithms, the technology brings accurate PPE detection
+                    to a selection of hardware – from video cameras to access control equipment – so as to ensure worker
+                    safety in hazardous environments.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>

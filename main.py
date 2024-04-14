@@ -34,6 +34,7 @@ def generate_frames_web(path_x):
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     session.clear()
     return render_template('login.html')
@@ -42,6 +43,11 @@ def login():
 def home():
     session.clear()
     return render_template('home_page.html')
+
+@app.route('/construction-ppe', methods=['GET', 'POST'])
+def construction_ppe():
+    session.clear()
+    return render_template('construction-ppe.html')
 
 @app.route('/webcam_det', methods=['GET', 'POST'])
 def webcam():
