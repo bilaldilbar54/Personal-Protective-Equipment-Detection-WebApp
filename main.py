@@ -1,10 +1,10 @@
+import os
+import cv2
 from flask import Flask, render_template, request, redirect, Response, jsonify, session
 from flask_wtf import FlaskForm
 from wtforms import FileField, StringField, SubmitField, DecimalRangeField, IntegerRangeField
 from werkzeug.utils import secure_filename
 from wtforms.validators import InputRequired, NumberRange
-import os
-import cv2
 from Yolo_Video_Detection import video_detection
 
 app = Flask(__name__)
@@ -31,7 +31,6 @@ def generate_frames_web(path_x):
     yolo_output = video_detection(path_x)
     for detection_ in yolo_output:
         ref, buffer = cv2.imencode('.jpg', detection_)
-
         frame = buffer.tobytes()
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
