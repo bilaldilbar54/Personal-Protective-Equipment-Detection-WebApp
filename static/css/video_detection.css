@@ -61,7 +61,7 @@ section.col-sm {
     object-fit: contain;
     margin-top: 200px;
     margin-left: 350px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .col-sm img {
@@ -80,6 +80,22 @@ section.col-sm {
     width: 1000px;
     border-radius: 10px;
 }
+
+/*.btn_exit a {*/
+/*    color: #064a69;*/
+/*    text-decoration: none;*/
+/*    border: 2px solid #fbbc42;*/
+/*    font-weight: 500;*/
+/*    padding: 10px 40px;*/
+/*    border-radius: 40px;*/
+/*    transition: .5s;*/
+/*    display: block;*/
+/*    width: fit-content;*/
+/*    margin-top: 40px;*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*}*/
 
 .col-sm .overlay-text {
     position: absolute;

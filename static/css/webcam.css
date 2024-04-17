@@ -81,6 +81,22 @@ section img {
     animation: flash 1s infinite;
 }
 
+/*.btn_exit a {*/
+/*    color: #064a69;*/
+/*    text-decoration: none;*/
+/*    border: 2px solid #fbbc42;*/
+/*    font-weight: 500;*/
+/*    padding: 10px 40px;*/
+/*    border-radius: 40px;*/
+/*    transition: .5s;*/
+/*    display: block;*/
+/*    width: fit-content;*/
+/*    margin-top: 40px;*/
+/*    position: absolute;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*}*/
+
 @keyframes flash {
     0% { color: #fbbc42; }
     50% { color: red; }

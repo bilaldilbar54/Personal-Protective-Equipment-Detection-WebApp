@@ -7,6 +7,7 @@ from werkzeug.utils import secure_filename
 from wtforms.validators import InputRequired, NumberRange
 from Yolo_Construction_Video_Detection import const_video_detection
 from Yolo_Medical_Video_Detection import med_video_detection
+from Yolo_Custom_Video_Detection import custom_video_detection
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'gbc-fsds'
@@ -38,6 +39,16 @@ def med_generate_frames(path_x=''):
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 
+def custom_generate_frames(path_x=''):
+    yolo_output = custom_video_detection(path_x)
+    for detection_ in yolo_output:
+        ref, buffer = cv2.imencode('.jpg', detection_)
+
+        frame = buffer.tobytes()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+
 def const_generate_frames_web(path_x):
     yolo_output = const_video_detection(path_x)
     for detection_ in yolo_output:
@@ -49,6 +60,15 @@ def const_generate_frames_web(path_x):
 
 def med_generate_frames_web(path_x):
     yolo_output = med_video_detection(path_x)
+    for detection_ in yolo_output:
+        ref, buffer = cv2.imencode('.jpg', detection_)
+        frame = buffer.tobytes()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+
+def custom_generate_frames_web(path_x):
+    yolo_output = custom_video_detection(path_x)
     for detection_ in yolo_output:
         ref, buffer = cv2.imencode('.jpg', detection_)
         frame = buffer.tobytes()
@@ -137,6 +157,35 @@ def med_video_feed():
 @app.route('/med_webcam_feed', methods=['GET', 'POST'])
 def med_webcam_feed():
     return Response(med_generate_frames_web(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/custom_webcam_feed', methods=['GET', 'POST'])
+def custom_webcam_feed():
+    return Response(custom_generate_frames_web(path_x=0), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
+@app.route('/custom_webcam_det', methods=['GET', 'POST'])
+def custom_webcam():
+    session.clear()
+    return render_template('custom_webcam_detection.html')
+
+
+@app.route('/custom_video_det', methods=['GET', 'POST'])
+def custom_video():
+    form = UploadFileForm()
+    if form.validate_on_submit():
+        file = form.file.data
+        file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'],
+                               secure_filename(file.filename)))
+        session['video_path'] = os.path.join(os.path.abspath(os.path.dirname(__file__)), app.config['UPLOAD_FOLDER'],
+                                             secure_filename(file.filename))
+    return render_template('custom_video_detection.html', form=form)
+
+
+@app.route('/custom_video_feed', methods=['GET', 'POST'])
+def custom_video_feed():
+    return Response(custom_generate_frames(path_x=session.get('video_path', None)),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 @app.route('/contact_us', methods=['GET', 'POST'])

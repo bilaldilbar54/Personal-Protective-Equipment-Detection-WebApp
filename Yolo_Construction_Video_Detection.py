@@ -34,11 +34,11 @@ def const_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
 
                 t_size_label = cv2.getTextSize(label, 0, fontScale=label_font_scale, thickness=2)[0]
                 c2 = x1 + t_size_label[0], y1 - t_size_label[1] - 3
-                if class_name == 'Dust Mask':
+                if class_name == 'Protective Helmet':
                     color = (0, 204, 255)
                 elif class_name == "Glove":
                     color = (222, 82, 175)
-                elif class_name == "Protective Helmet":
+                elif class_name == "Dust Mask":
                     color = (0, 149, 255)
                 else:
                     color = (85, 45, 255)
