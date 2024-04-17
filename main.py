@@ -89,18 +89,6 @@ def home():
     return render_template('home_page.html')
 
 
-@app.route('/construction-ppe', methods=['GET', 'POST'])
-def construction_ppe():
-    session.clear()
-    return render_template('construction-ppe.html')
-
-
-@app.route('/medical-ppe', methods=['GET', 'POST'])
-def medical_ppe():
-    session.clear()
-    return render_template('medical-ppe.html')
-
-
 @app.route('/const_webcam_det', methods=['GET', 'POST'])
 def const_webcam():
     session.clear()
