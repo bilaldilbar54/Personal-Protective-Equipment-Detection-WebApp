@@ -43,7 +43,7 @@ def const_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
                 else:
                     color = (85, 45, 255)
 
-                if conf > 0.5:
+                if conf > 0.2:
                     # Draw bounding box
                     cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
                     cv2.rectangle(img, (x1, y1), c2, color, -1, cv2.LINE_AA)  # filled
