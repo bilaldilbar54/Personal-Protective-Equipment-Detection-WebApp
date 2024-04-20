@@ -9,7 +9,7 @@ def const_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
 
-    model = YOLO("YOLO-Weights/const-ppe-detector(3).pt")
+    model = YOLO("const-ppe-detector(3).pt")
     classNames = ['Protective Helmet', 'Shield', 'Jacket', 'Dust Mask', 'Eye Wear', 'Glove', 'Protective Boots']
 
     while True:
@@ -50,8 +50,8 @@ def const_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
                     # Draw label and confidence
                     cv2.putText(img, label, (x1, y1 - 2), 0, label_font_scale, [255, 255, 255], thickness=1,
                                 lineType=cv2.LINE_AA)
-                    # cv2.putText(img, f'{conf}', (x1, y1 - int(t_size_label[1] * 1.5)), 0, conf_font_scale,
-                    #             [255, 255, 255], thickness=1, lineType=cv2.LINE_AA)
+                    cv2.putText(img, f'{conf}', (x1, y1 - int(t_size_label[1] * 1.5)), 0, conf_font_scale,
+                                [255, 255, 255], thickness=1, lineType=cv2.LINE_AA)
 
         yield img
 

@@ -9,7 +9,7 @@ def custom_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
 
-    model = YOLO("YOLO-Weights/custom-ppe-detector.pt")
+    model = YOLO("custom-ppe-detector.pt")
     classNames = ['Fall-Detected', 'Gloves', 'Goggles', 'Hardhat', 'Ladder', 'Mask', 'NO-Gloves', 'NO-Goggles', 'NO-Hardhat', 'NO-Mask', 'NO-Safety Vest', 'Person', 'Safety Cone', 'Safety Vest']
 
     while True:

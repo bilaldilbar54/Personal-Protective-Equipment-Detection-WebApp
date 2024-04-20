@@ -9,7 +9,7 @@ def med_video_detection(path_x, label_scale=1.0, conf_scale=1.0):
     frame_width = int(cap.get(3))
     frame_height = int(cap.get(4))
 
-    model = YOLO("YOLO-Weights/med-ppe(2).pt")
+    model = YOLO("med-ppe(2).pt")
     classNames = ['Coat', 'Glasses', 'Glove', 'Mask']
 
     while True:
